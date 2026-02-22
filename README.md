@@ -1,6 +1,6 @@
 # Voice AI Performance Optimizer
 
-An Agent Performance Copilot that automates the "Test" and "Optimize" phases for HighLevel Or AnyVoice AI agents. This tool acts as a "Validation Flywheel" - moving beyond manual trial-and-error by using AI to autonomously define test cases and refine agent prompts based on performance results.
+An Agent Performance Copilot that automates the "Test" and "Optimize" phases for HighLevel Or Any Voice AI agents. This tool acts as a "Validation Flywheel" - moving beyond manual trial-and-error by using AI to autonomously define test cases and refine agent prompts based on performance results.
 
 ![Voice AI Optimizer](https://img.shields.io/badge/Status-Demo%20Ready-green) ![Node.js](https://img.shields.io/badge/Node.js-20+-blue) ![React](https://img.shields.io/badge/React-18+-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6)
 
@@ -330,7 +330,7 @@ private getPromptQualityScore(): number {
 - Suggests alternatives for closed days
 - Asks clarifying questions
 
-This allows the optimization loop to demonstrate real improvement even without the actual HighLevel Or AnyAPI.
+This allows the optimization loop to demonstrate real improvement even without the actual Any Voice AI agents.
 
 ---
 
@@ -350,7 +350,7 @@ voice-ai-optimizer/
 │  │  │  └── api.ts
 │  │  ├── services/    # Business logic
 │  │  │  ├── LLMClient.ts    # OpenRouter integration
-│  │  │  ├── HighLevelClient.ts # HighLevel Or AnyAPI (mocked)
+│  │  │  ├── HighLevelClient.ts # HighLevel Or Any Voice AI agents (mocked)
 │  │  │  └── OptimizerService.ts # Core optimization logic
 │  │  ├── types/      # TypeScript definitions
 │  │  └── utils/      # Helpers (database, queue)
@@ -437,7 +437,7 @@ voice-ai-optimizer/
 
 If this were a production system:
 
-1. **Real HighLevel Or AnyIntegration**: Use actual Voice AI API when available
+1. **Any Voice AI agents**: Use actual Voice AI API when available
 2. **Custom Test Cases**: Allow users to define their own tests
 3. **A/B Testing**: Compare multiple prompt versions
 4. **Historical Tracking**: Track optimization history over time
