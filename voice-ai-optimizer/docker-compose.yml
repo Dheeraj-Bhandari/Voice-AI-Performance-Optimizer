@@ -28,8 +28,7 @@ services:
       - MONGODB_URI=mongodb://mongodb:27017/voice-ai-optimizer
       - REDIS_URL=redis://redis:6379
       - OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
-      # PASTE YOUR OPENROUTER API KEY HERE:
-      - OPENROUTER_API_KEY=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
+      - OPENROUTER_API_KEY=
     depends_on:
       - mongodb
       - redis
