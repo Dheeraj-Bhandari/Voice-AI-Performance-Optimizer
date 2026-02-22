@@ -1,6 +1,6 @@
 # Voice AI Performance Optimizer
 
-An Agent Performance Copilot that automates the "Test" and "Optimize" phases for HighLevel Voice AI agents. This tool acts as a "Validation Flywheel" - moving beyond manual trial-and-error by using AI to autonomously define test cases and refine agent prompts based on performance results.
+An Agent Performance Copilot that automates the "Test" and "Optimize" phases for HighLevel Or AnyVoice AI agents. This tool acts as a "Validation Flywheel" - moving beyond manual trial-and-error by using AI to autonomously define test cases and refine agent prompts based on performance results.
 
 ![Voice AI Optimizer](https://img.shields.io/badge/Status-Demo%20Ready-green) ![Node.js](https://img.shields.io/badge/Node.js-20+-blue) ![React](https://img.shields.io/badge/React-18+-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6)
 
@@ -22,33 +22,33 @@ Current Voice AI setups require significant manual effort to ensure agents follo
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                         FRONTEND (React + Vite)                      │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐ │
-│  │ControlPanel │  │  LogViewer  │  │ResultsPanel │  │ StatsPanel  │ │
-│  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────┘ │
+│             FRONTEND (React + Vite)           │
+│ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ │
+│ │ControlPanel │ │ LogViewer │ │ResultsPanel │ │ StatsPanel │ │
+│ └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘ │
 └─────────────────────────────────────────────────────────────────────┘
-                                    │
-                                    ▼
+                  │
+                  ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│                      BACKEND (Node.js + Express)                     │
-│  ┌─────────────────────────────────────────────────────────────────┐│
-│  │                      OptimizerService                            ││
-│  │  ┌───────────────┐    ┌───────────────┐    ┌───────────────┐   ││
-│  │  │ generateTests │───▶│ executeTests  │───▶│   optimize    │   ││
-│  │  └───────────────┘    └───────────────┘    └───────────────┘   ││
-│  └─────────────────────────────────────────────────────────────────┘│
-│                                                                      │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐     │
-│  │   LLMClient     │  │HighLevelClient  │  │    Models       │     │
-│  │  (OpenRouter)   │  │  (Mock/Real)    │  │   (MongoDB)     │     │
-│  └─────────────────┘  └─────────────────┘  └─────────────────┘     │
+│           BACKEND (Node.js + Express)           │
+│ ┌─────────────────────────────────────────────────────────────────┐│
+│ │           OptimizerService              ││
+│ │ ┌───────────────┐  ┌───────────────┐  ┌───────────────┐  ││
+│ │ │ generateTests │───▶│ executeTests │───▶│  optimize  │  ││
+│ │ └───────────────┘  └───────────────┘  └───────────────┘  ││
+│ └─────────────────────────────────────────────────────────────────┘│
+│                                   │
+│ ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐   │
+│ │  LLMClient   │ │HighLevelClient │ │  Models    │   │
+│ │ (OpenRouter)  │ │ (Mock/Real)  │ │  (MongoDB)   │   │
+│ └─────────────────┘ └─────────────────┘ └─────────────────┘   │
 └─────────────────────────────────────────────────────────────────────┘
-                    │                               │
-                    ▼                               ▼
-            ┌─────────────┐                 ┌─────────────┐
-            │  OpenRouter │                 │   MongoDB   │
-            │  (GPT-4o)   │                 │   + Redis   │
-            └─────────────┘                 └─────────────┘
+          │                │
+          ▼                ▼
+      ┌─────────────┐         ┌─────────────┐
+      │ OpenRouter │         │  MongoDB  │
+      │ (GPT-4o)  │         │  + Redis  │
+      └─────────────┘         └─────────────┘
 ```
 
 ### Two-Loop System
@@ -82,18 +82,18 @@ Execute Tests → Evaluate (LLM-as-Judge) → Analyze Failures → Generate Opti
 ```json
 // Backend
 {
-  "express": "^4.18.2",
-  "mongoose": "^8.0.0",
-  "bullmq": "^5.1.0",
-  "axios": "^1.6.0",
-  "uuid": "^9.0.0"
+ "express": "^4.18.2",
+ "mongoose": "^8.0.0",
+ "bullmq": "^5.1.0",
+ "axios": "^1.6.0",
+ "uuid": "^9.0.0"
 }
 
 // Frontend
 {
-  "react": "^18.2.0",
-  "vite": "^5.0.0",
-  "typescript": "^5.0.0"
+ "react": "^18.2.0",
+ "vite": "^5.0.0",
+ "typescript": "^5.0.0"
 }
 ```
 
@@ -115,7 +115,7 @@ cd voice-ai-optimizer
 2. **Add your OpenRouter API key** in `docker-compose.yml`:
 ```yaml
 environment:
-  - OPENROUTER_API_KEY=sk-or-v1-your-key-here
+ - OPENROUTER_API_KEY=sk-or-v1-your-key-here
 ```
 
 3. **Start all services:**
@@ -201,10 +201,10 @@ If score < 100%:
 - Analyze failure patterns
 - Generate targeted improvements
 - Create optimized prompt with:
-  - Specific services and prices
-  - Working hours
-  - Edge case handling instructions
-  - Clarification prompts
+ - Specific services and prices
+ - Working hours
+ - Edge case handling instructions
+ - Clarification prompts
 
 ### Step 6: Iterate
 Repeat steps 3-5 until:
@@ -291,7 +291,7 @@ This project was built with a "Team of One" approach, handling all aspects of pr
 
 | Component | Reason | Implementation |
 |-----------|--------|----------------|
-| **HighLevel Voice AI API** | Sandbox doesn't allow API key creation | Intelligent mock that varies responses based on prompt quality |
+| **HighLevel** | Sandbox doesn't allow API key creation | Intelligent mock that varies responses based on prompt quality |
 | **Voice Conversations** | No real voice processing | Text-based simulation |
 | **Agent Updates** | Can't modify real agents | In-memory + database storage |
 
@@ -302,20 +302,20 @@ The `HighLevelClient` mock is **intelligent** - it doesn't return static respons
 ```typescript
 // Mock responses vary based on prompt quality score (0-1)
 private getPromptQualityScore(): number {
-  const prompt = currentMockPrompt.toLowerCase();
-  const checks = [
-    prompt.includes('dental') || prompt.includes('clinic'),
-    prompt.includes('cleaning') || prompt.includes('whitening'),
-    prompt.includes('price') || prompt.includes('$99'),
-    prompt.includes('monday') || prompt.includes('hours'),
-    prompt.includes('sunday') || prompt.includes('closed'),
-    prompt.includes('email') || prompt.includes('confirm'),
-    prompt.includes('february') || prompt.includes('invalid'),
-    prompt.includes('clarif') || prompt.includes('ambiguous'),
-    prompt.includes('vaccination') || prompt.includes('flu'),
-    currentMockPrompt.length > 400,
-  ];
-  return checks.filter(Boolean).length / checks.length;
+ const prompt = currentMockPrompt.toLowerCase();
+ const checks = [
+  prompt.includes('dental') || prompt.includes('clinic'),
+  prompt.includes('cleaning') || prompt.includes('whitening'),
+  prompt.includes('price') || prompt.includes('$99'),
+  prompt.includes('monday') || prompt.includes('hours'),
+  prompt.includes('sunday') || prompt.includes('closed'),
+  prompt.includes('email') || prompt.includes('confirm'),
+  prompt.includes('february') || prompt.includes('invalid'),
+  prompt.includes('clarif') || prompt.includes('ambiguous'),
+  prompt.includes('vaccination') || prompt.includes('flu'),
+  currentMockPrompt.length > 400,
+ ];
+ return checks.filter(Boolean).length / checks.length;
 }
 ```
 
@@ -330,7 +330,7 @@ private getPromptQualityScore(): number {
 - Suggests alternatives for closed days
 - Asks clarifying questions
 
-This allows the optimization loop to demonstrate real improvement even without the actual HighLevel API.
+This allows the optimization loop to demonstrate real improvement even without the actual HighLevel Or AnyAPI.
 
 ---
 
@@ -339,39 +339,39 @@ This allows the optimization loop to demonstrate real improvement even without t
 ```
 voice-ai-optimizer/
 ├── backend/
-│   ├── src/
-│   │   ├── config/          # Environment configuration
-│   │   ├── models/          # MongoDB schemas
-│   │   │   ├── Agent.ts
-│   │   │   ├── TestSuite.ts
-│   │   │   ├── OptimizedPrompt.ts
-│   │   │   └── ExecutionResult.ts
-│   │   ├── routes/          # API endpoints
-│   │   │   └── api.ts
-│   │   ├── services/        # Business logic
-│   │   │   ├── LLMClient.ts        # OpenRouter integration
-│   │   │   ├── HighLevelClient.ts  # HighLevel API (mocked)
-│   │   │   └── OptimizerService.ts # Core optimization logic
-│   │   ├── types/           # TypeScript definitions
-│   │   └── utils/           # Helpers (database, queue)
-│   ├── Dockerfile
-│   └── package.json
+│  ├── src/
+│  │  ├── config/     # Environment configuration
+│  │  ├── models/     # MongoDB schemas
+│  │  │  ├── Agent.ts
+│  │  │  ├── TestSuite.ts
+│  │  │  ├── OptimizedPrompt.ts
+│  │  │  └── ExecutionResult.ts
+│  │  ├── routes/     # API endpoints
+│  │  │  └── api.ts
+│  │  ├── services/    # Business logic
+│  │  │  ├── LLMClient.ts    # OpenRouter integration
+│  │  │  ├── HighLevelClient.ts # HighLevel Or AnyAPI (mocked)
+│  │  │  └── OptimizerService.ts # Core optimization logic
+│  │  ├── types/      # TypeScript definitions
+│  │  └── utils/      # Helpers (database, queue)
+│  ├── Dockerfile
+│  └── package.json
 ├── frontend/
-│   ├── src/
-│   │   ├── components/      # React components
-│   │   │   ├── ControlPanel.tsx
-│   │   │   ├── LogViewer.tsx
-│   │   │   ├── ResultsPanel.tsx
-│   │   │   ├── StatsPanel.tsx
-│   │   │   └── ConversationPanel.tsx
-│   │   ├── hooks/           # Custom React hooks
-│   │   │   └── useOptimizer.ts
-│   │   ├── App.tsx
-│   │   ├── api.ts           # Backend API client
-│   │   ├── types.ts
-│   │   └── styles.ts
-│   ├── Dockerfile
-│   └── package.json
+│  ├── src/
+│  │  ├── components/   # React components
+│  │  │  ├── ControlPanel.tsx
+│  │  │  ├── LogViewer.tsx
+│  │  │  ├── ResultsPanel.tsx
+│  │  │  ├── StatsPanel.tsx
+│  │  │  └── ConversationPanel.tsx
+│  │  ├── hooks/      # Custom React hooks
+│  │  │  └── useOptimizer.ts
+│  │  ├── App.tsx
+│  │  ├── api.ts      # Backend API client
+│  │  ├── types.ts
+│  │  └── styles.ts
+│  ├── Dockerfile
+│  └── package.json
 ├── docker-compose.yml
 └── README.md
 ```
@@ -398,22 +398,22 @@ voice-ai-optimizer/
 ### Where AI is Used
 
 1. **Prompt Analysis** (`LLMClient.analyzePrompt`)
-   - Extracts intents, constraints, behaviors from agent prompt
+  - Extracts intents, constraints, behaviors from agent prompt
 
 2. **Test Generation** (`LLMClient.generateTestCases`)
-   - Creates realistic test scenarios based on business context
+  - Creates realistic test scenarios based on business context
 
 3. **Response Evaluation** (`LLMClient.evaluateResponse`)
-   - LLM-as-Judge pattern with structured metrics
-   - Consistent, objective scoring
+  - LLM-as-Judge pattern with structured metrics
+  - Consistent, objective scoring
 
 4. **Insight Generation** (`LLMClient.generateInsights`)
-   - Identifies failure patterns across tests
-   - Prioritizes fixes by impact
+  - Identifies failure patterns across tests
+  - Prioritizes fixes by impact
 
 5. **Prompt Optimization** (`LLMClient.optimizePrompt`)
-   - Generates improved prompt targeting specific failures
-   - Includes all necessary business details
+  - Generates improved prompt targeting specific failures
+  - Includes all necessary business details
 
 ### Prompt Engineering Techniques
 
@@ -437,7 +437,7 @@ voice-ai-optimizer/
 
 If this were a production system:
 
-1. **Real HighLevel Integration**: Use actual Voice AI API when available
+1. **Real HighLevel Or AnyIntegration**: Use actual Voice AI API when available
 2. **Custom Test Cases**: Allow users to define their own tests
 3. **A/B Testing**: Compare multiple prompt versions
 4. **Historical Tracking**: Track optimization history over time
@@ -449,12 +449,7 @@ If this were a production system:
 
 ## 📝 License
 
-MIT License - Built for HighLevel Interview Assignment
+MIT License - Built for Study Purpose
 
 ---
 
-## 🙏 Acknowledgments
-
-- HighLevel for the challenge specification
-- OpenRouter for LLM API access
-- The open-source community for excellent tooling
