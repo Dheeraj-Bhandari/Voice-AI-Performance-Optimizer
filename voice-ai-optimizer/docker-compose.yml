@@ -1,0 +1,55 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: voice-ai-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  redis:
+    image: redis:7-alpine
+    container_name: voice-ai-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: voice-ai-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb:27017/voice-ai-optimizer
+      - REDIS_URL=redis://redis:6379
+      - OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+      # PASTE YOUR OPENROUTER API KEY HERE:
+      - OPENROUTER_API_KEY=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
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./backend/src:/app/src
+    command: npm run dev
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: voice-ai-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/src:/app/src
+    command: npm run dev -- --host
+
+volumes:
+  mongodb_data:
+  redis_data:
